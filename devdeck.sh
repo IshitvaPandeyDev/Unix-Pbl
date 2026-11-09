@@ -10,8 +10,11 @@ case "$COMMAND" in
     "dockerize")
         ./modules/dockerizer.sh "$@"
         ;;
+    "secrets")
+        ./modules/secret_manager.sh "$@"
+        ;;
     *)
-        echo "Usage: ./devdeck.sh [setup|dockerize]"
+        echo "Usage: ./devdeck.sh [setup|dockerize|secrets]"
         exit 1
         ;;
 esac
