@@ -13,8 +13,11 @@ case "$COMMAND" in
     "secrets")
         ./modules/secret_manager.sh "$@"
         ;;
+    "clean")
+        ./modules/maintenance.sh "$@"
+        ;;
     *)
-        echo "Usage: ./devdeck.sh [setup|dockerize|secrets]"
+        echo "Usage: ./devdeck.sh [setup|dockerize|secrets|clean]"
         exit 1
         ;;
 esac
