@@ -1,23 +1,24 @@
 #!/bin/bash
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 COMMAND=$1
 shift
 
 case "$COMMAND" in
     "setup")
-        ./modules/workspace_setup.sh "$@"
+        "$SCRIPT_DIR/modules/workspace_setup.sh" "$@"
         ;;
     "dockerize")
-        ./modules/dockerizer.sh "$@"
+        "$SCRIPT_DIR/modules/dockerizer.sh" "$@"
         ;;
     "secrets")
-        ./modules/secret_manager.sh "$@"
+        "$SCRIPT_DIR/modules/secret_manager.sh" "$@"
         ;;
     "clean")
-        ./modules/maintenance.sh "$@"
+        "$SCRIPT_DIR/modules/maintenance.sh" "$@"
         ;;
     "git")
-        ./modules/git_automator.sh "$@"
+        "$SCRIPT_DIR/modules/git_automator.sh" "$@"
         ;;
     *)
         echo "Usage: ./devdeck.sh [setup|dockerize|secrets|clean|git]"
