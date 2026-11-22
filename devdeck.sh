@@ -16,8 +16,11 @@ case "$COMMAND" in
     "clean")
         ./modules/maintenance.sh "$@"
         ;;
+    "git")
+        ./modules/git_automator.sh "$@"
+        ;;
     *)
-        echo "Usage: ./devdeck.sh [setup|dockerize|secrets|clean]"
+        echo "Usage: ./devdeck.sh [setup|dockerize|secrets|clean|git]"
         exit 1
         ;;
 esac
