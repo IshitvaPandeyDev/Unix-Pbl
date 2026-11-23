@@ -5,17 +5,14 @@ echo "Scanning project files..."
 if [ -f "requirements.txt" ]; then
     echo "Python dependencies detected."
     
-    # Track dependencies using a hidden hash file
     HASH_FILE=".devdeck_deps_hash"
     CURRENT_HASH=$(md5sum requirements.txt | awk '{ print $1 }')
     
-    # Check if dependencies have changed
     if [ -f "$HASH_FILE" ] && [ "$CURRENT_HASH" == "$(cat $HASH_FILE)" ]; then
         echo "No changes in requirements.txt. Dockerfile is up to date."
         exit 0
     fi
     
-    # Prompt the user before taking action
     read -p "Dependency changes detected. Generate a new Dockerfile? (y/n): " choice
     
     if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
